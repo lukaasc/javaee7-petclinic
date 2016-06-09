@@ -11,7 +11,7 @@
             <h:form id="forecastForm">
                 <h:panelGrid id="grid" columns="2" style="vertical-align: middle">
                     <h:inputText styleClass="form-control" value="#{forecastController.searchterm}" />
-                    <h:commandButton id="search" action="#{forecast.search}" value="#{msg.search}" styleClass="btn"/>
+                    <h:commandButton id="search" action="#{forecastController.search}" value="#{msg.search}" styleClass="btn"/>
                 </h:panelGrid>
             </h:form>
 
