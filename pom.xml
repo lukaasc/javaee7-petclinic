@@ -53,6 +53,11 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <groupId>org.bitpipeline.lib</groupId>
+                <artifactId>owm-lib</artifactId>
+                <version>2.1.3-SNAPSHOT</version>
+            </dependency>
             <!--<dependency>
                 <groupId>org.richfaces</groupId>
                 <artifactId>richfaces-bom</artifactId>
@@ -66,6 +71,12 @@
                 <version>${jboss.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            
+            <dependency>
+		<groupId>org.codehaus.jackson</groupId>
+		<artifactId>jackson-mapper-asl</artifactId>
+		<version>1.9.13</version>
             </dependency>
 
             <!-- Arquillian Core dependencies -->
@@ -153,7 +164,19 @@
             <artifactId>jboss-servlet-api_3.1_spec</artifactId>
             <scope>provided</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.woehlke</groupId>
+            <artifactId>javaee7-petclinic</artifactId>
+            <version>1.3-SNAPSHOT</version>
+            <scope>test</scope>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>apache-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.0</version>
+            <type>jar</type>
+        </dependency>
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
@@ -460,6 +483,10 @@
         <repository>
             <id>maven-central</id>
             <url>http://repo1.maven.org/maven2/</url>
+        </repository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/groups/public/</url>
         </repository>
     </repositories>
 
