@@ -9,11 +9,8 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import javax.json.Json;
-import javax.json.JsonReader;
-import org.codehaus.jackson.JsonGenerationException;
-import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.woehlke.javaee7.petclinic.model.Forecast;
 
 @ManagedBean
 @SessionScoped
@@ -39,7 +36,8 @@ public class forecastController implements Serializable {
     public String search() {
         try {
 
-            URL url = new URL("http://api.openweathermap.org/data/2.5/forecast?q=London,us&mode=json&APPID=9c6cc69cad227d2f2b7c54783bdb1cc4");
+            //URL url = new URL("http://api.openweathermap.org/data/2.5/forecast?q=London,us&mode=json&APPID=9c6cc69cad227d2f2b7c54783bdb1cc4");
+            URL url = new URL("http://api.openweathermap.org/data/2.5/weather?q=London&APPID=9c6cc69cad227d2f2b7c54783bdb1cc4");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Accept", "application/json");
@@ -52,11 +50,14 @@ public class forecastController implements Serializable {
             
             ObjectMapper mapper = new ObjectMapper();
             String output;
-            Json obj = null;
-            JsonReader json = Json.createReader(conn.getInputStream());
-            //log.warning(json.readObject().toString());
-            CityPOJO city = mapper.readValue(json.readObject().toString(), CityPOJO.class);
-            log.warning(city.toString());
+//            Json obj = null;
+//            JsonReader json = Json.createReader(conn.getInputStream());
+//            //log.warning(json.readObject().toString());
+//            CityPOJO city = mapper.readValue(json.readObject().toString(), CityPOJO.class);
+//            log.warning(city.toString());
+
+            //JSON from String to Object
+            Forecast obj = mapper.readValue(new URL("http://api.openweathermap.org/data/2.5/weather?q=London&APPID=9c6cc69cad227d2f2b7c54783bdb1cc4"), Forecast.class);            
 
             conn.disconnect();
 
