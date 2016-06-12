@@ -11,8 +11,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown=true)
 @Generated("org.jsonschema2pojo")
 @JsonPropertyOrder({
     "city",
@@ -144,6 +148,23 @@ public class Forecast {
     @JsonAnySetter
     public void setAdditionalProperty(String name, Object value) {
         this.additionalProperties.put(name, value);
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder().append(city).append(cod).append(message).append(cnt).append(list).append(additionalProperties).toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+        if ((other instanceof Forecast) == false) {
+            return false;
+        }
+        Forecast rhs = ((Forecast) other);
+        return new EqualsBuilder().append(city, rhs.city).append(cod, rhs.cod).append(message, rhs.message).append(cnt, rhs.cnt).append(list, rhs.list).append(additionalProperties, rhs.additionalProperties).isEquals();
     }
 
 }

@@ -11,8 +11,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown=true)
 @Generated("org.jsonschema2pojo")
 @JsonPropertyOrder({
     "dt",
@@ -213,6 +217,23 @@ public class List {
     @JsonAnySetter
     public void setAdditionalProperty(String name, Object value) {
         this.additionalProperties.put(name, value);
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder().append(dt).append(main).append(weather).append(clouds).append(wind).append(rain).append(sys).append(dtTxt).append(additionalProperties).toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+        if ((other instanceof List) == false) {
+            return false;
+        }
+        List rhs = ((List) other);
+        return new EqualsBuilder().append(dt, rhs.dt).append(main, rhs.main).append(weather, rhs.weather).append(clouds, rhs.clouds).append(wind, rhs.wind).append(rain, rhs.rain).append(sys, rhs.sys).append(dtTxt, rhs.dtTxt).append(additionalProperties, rhs.additionalProperties).isEquals();
     }
 
 }

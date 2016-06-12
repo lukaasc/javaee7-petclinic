@@ -10,8 +10,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown=true)
 @Generated("org.jsonschema2pojo")
 @JsonPropertyOrder({
     "temp",
@@ -212,6 +216,23 @@ public class Main {
     @JsonAnySetter
     public void setAdditionalProperty(String name, Object value) {
         this.additionalProperties.put(name, value);
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder().append(temp).append(tempMin).append(tempMax).append(pressure).append(seaLevel).append(grndLevel).append(humidity).append(tempKf).append(additionalProperties).toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+        if ((other instanceof Main) == false) {
+            return false;
+        }
+        Main rhs = ((Main) other);
+        return new EqualsBuilder().append(temp, rhs.temp).append(tempMin, rhs.tempMin).append(tempMax, rhs.tempMax).append(pressure, rhs.pressure).append(seaLevel, rhs.seaLevel).append(grndLevel, rhs.grndLevel).append(humidity, rhs.humidity).append(tempKf, rhs.tempKf).append(additionalProperties, rhs.additionalProperties).isEquals();
     }
 
 }
