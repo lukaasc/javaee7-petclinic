@@ -1,4 +1,4 @@
-    <ui:composition template="./template.xhtml"
+<ui:composition template="./template.xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core"
@@ -6,15 +6,63 @@
                 xmlns:a4j="http://richfaces.org/a4j"
                 xmlns:rich="http://richfaces.org/rich">
 
-        <ui:define name="content">
-            <h2 id="forecast">#{msg.forecast}</h2>
-            <h:form id="forecastForm">
-                <h:panelGrid id="grid" columns="2" style="vertical-align: middle">
-                    <h:inputText styleClass="form-control" value="#{forecastController.searchterm}" />
-                    <h:commandButton id="search" action="#{forecastController.search}" value="#{msg.search}" styleClass="btn"/>
-                </h:panelGrid>
-            </h:form>
+    <ui:define name="content">
+        <h2 id="forecast">#{msg.forecast}</h2>
+        <h:form id="forecastForm">
+            <h:panelGrid id="grid" columns="2" style="vertical-align: middle">
+                <h:inputText styleClass="form-control" value="#{forecastController.searchterm}" />
+                <h:commandButton id="search" action="#{forecastController.search}" value="#{msg.search}" styleClass="btn"/>
+            </h:panelGrid>
+        </h:form>
 
-        </ui:define>
+        <h:form>
 
-    </ui:composition>
+            <rich:list var="item" value="#{forecastController.fl}" title="Car Store" styleClass="stable">
+
+                <h:graphicImage value="http://openweathermap.org/img/w/#{item.icone}.png"/>
+                
+                <h:outputText value="#{item.city}, #{item.country} - #{item.date}"/><br></br>
+
+                <h:outputText value="Previsão: " styleClass="header"></h:outputText>
+
+                <h:outputText value="#{item.previsao} "/><br></br>
+                
+                <h:outputText value="Temperatura: " styleClass="header"></h:outputText>
+
+                <h:outputText value="#{item.temp}°C"/><br></br>
+                
+                <h:outputText value="Temperatura Máx: " styleClass="header"></h:outputText>
+
+                <h:outputText value="#{item.temp_max}°C "/><br></br>            
+
+                <h:outputText value="Temperatura Min: " styleClass="header"></h:outputText>
+
+                <h:outputText value="#{item.temp_min}°C"/><br></br>
+
+                <h:outputText value="Temperatura Manhã: " styleClass="header"></h:outputText>
+
+                <h:outputText value="#{item.temp_manha}°C"/><br></br>
+
+                <h:outputText value="Temperatura Tarde: " styleClass="header"></h:outputText>
+
+                <h:outputText value="#{item.temp_tarde}°C"/><br></br>
+
+                <h:outputText value="Temperatura Noite: " styleClass="header"></h:outputText>
+
+                <h:outputText value="#{item.temp_noite}°C"/><br></br>
+
+                <h:outputText value="Pressão: " styleClass="header"></h:outputText>
+
+                <h:outputText value="#{item.pressao} "/><br></br>
+                
+                <h:outputText value="Umidade: " styleClass="header"></h:outputText>
+
+                <h:outputText value="#{item.umidade}%"/><br></br>
+          
+            </rich:list>
+
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>

@@ -1,29 +1,21 @@
 
 package org.woehlke.javaee7.petclinic.model;
 
-import java.util.HashMap;
-import java.util.Map;
 import javax.annotation.Generated;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import org.apache.commons.lang.builder.EqualsBuilder;
-import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Generated("org.jsonschema2pojo")
 @JsonPropertyOrder({
     "id",
     "name",
     "coord",
     "country",
-    "population",
-    "sys"
+    "population"
 })
 public class City {
 
@@ -37,10 +29,6 @@ public class City {
     private String country;
     @JsonProperty("population")
     private Integer population;
-    @JsonProperty("sys")
-    private Sys sys;
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     /**
      * 
@@ -140,53 +128,6 @@ public class City {
     @JsonProperty("population")
     public void setPopulation(Integer population) {
         this.population = population;
-    }
-
-    /**
-     * 
-     * @return
-     *     The sys
-     */
-    @JsonProperty("sys")
-    public Sys getSys() {
-        return sys;
-    }
-
-    /**
-     * 
-     * @param sys
-     *     The sys
-     */
-    @JsonProperty("sys")
-    public void setSys(Sys sys) {
-        this.sys = sys;
-    }
-
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
-
-    @Override
-    public int hashCode() {
-        return new HashCodeBuilder().append(id).append(name).append(coord).append(country).append(population).append(sys).append(additionalProperties).toHashCode();
-    }
-
-    @Override
-    public boolean equals(Object other) {
-        if (other == this) {
-            return true;
-        }
-        if ((other instanceof City) == false) {
-            return false;
-        }
-        City rhs = ((City) other);
-        return new EqualsBuilder().append(id, rhs.id).append(name, rhs.name).append(coord, rhs.coord).append(country, rhs.country).append(population, rhs.population).append(sys, rhs.sys).append(additionalProperties, rhs.additionalProperties).isEquals();
     }
 
 }

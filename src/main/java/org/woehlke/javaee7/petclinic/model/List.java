@@ -2,52 +2,43 @@
 package org.woehlke.javaee7.petclinic.model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import javax.annotation.Generated;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import org.apache.commons.lang.builder.EqualsBuilder;
-import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Generated("org.jsonschema2pojo")
 @JsonPropertyOrder({
     "dt",
-    "main",
+    "temp",
+    "pressure",
+    "humidity",
     "weather",
-    "clouds",
-    "wind",
-    "rain",
-    "sys",
-    "dt_txt"
+    "speed",
+    "deg",
+    "clouds"
 })
 public class List {
 
     @JsonProperty("dt")
     private Integer dt;
-    @JsonProperty("main")
-    private Main main;
+    @JsonProperty("temp")
+    private Temp temp;
+    @JsonProperty("pressure")
+    private Double pressure;
+    @JsonProperty("humidity")
+    private Integer humidity;
     @JsonProperty("weather")
     private java.util.List<Weather> weather = new ArrayList<Weather>();
+    @JsonProperty("speed")
+    private Double speed;
+    @JsonProperty("deg")
+    private Integer deg;
     @JsonProperty("clouds")
-    private Clouds clouds;
-    @JsonProperty("wind")
-    private Wind wind;
-    @JsonProperty("rain")
-    private Rain rain;
-    @JsonProperty("sys")
-    private Sys_ sys;
-    @JsonProperty("dt_txt")
-    private String dtTxt;
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Integer clouds;
 
     /**
      * 
@@ -72,21 +63,61 @@ public class List {
     /**
      * 
      * @return
-     *     The main
+     *     The temp
      */
-    @JsonProperty("main")
-    public Main getMain() {
-        return main;
+    @JsonProperty("temp")
+    public Temp getTemp() {
+        return temp;
     }
 
     /**
      * 
-     * @param main
-     *     The main
+     * @param temp
+     *     The temp
      */
-    @JsonProperty("main")
-    public void setMain(Main main) {
-        this.main = main;
+    @JsonProperty("temp")
+    public void setTemp(Temp temp) {
+        this.temp = temp;
+    }
+
+    /**
+     * 
+     * @return
+     *     The pressure
+     */
+    @JsonProperty("pressure")
+    public Double getPressure() {
+        return pressure;
+    }
+
+    /**
+     * 
+     * @param pressure
+     *     The pressure
+     */
+    @JsonProperty("pressure")
+    public void setPressure(Double pressure) {
+        this.pressure = pressure;
+    }
+
+    /**
+     * 
+     * @return
+     *     The humidity
+     */
+    @JsonProperty("humidity")
+    public Integer getHumidity() {
+        return humidity;
+    }
+
+    /**
+     * 
+     * @param humidity
+     *     The humidity
+     */
+    @JsonProperty("humidity")
+    public void setHumidity(Integer humidity) {
+        this.humidity = humidity;
     }
 
     /**
@@ -112,10 +143,50 @@ public class List {
     /**
      * 
      * @return
+     *     The speed
+     */
+    @JsonProperty("speed")
+    public Double getSpeed() {
+        return speed;
+    }
+
+    /**
+     * 
+     * @param speed
+     *     The speed
+     */
+    @JsonProperty("speed")
+    public void setSpeed(Double speed) {
+        this.speed = speed;
+    }
+
+    /**
+     * 
+     * @return
+     *     The deg
+     */
+    @JsonProperty("deg")
+    public Integer getDeg() {
+        return deg;
+    }
+
+    /**
+     * 
+     * @param deg
+     *     The deg
+     */
+    @JsonProperty("deg")
+    public void setDeg(Integer deg) {
+        this.deg = deg;
+    }
+
+    /**
+     * 
+     * @return
      *     The clouds
      */
     @JsonProperty("clouds")
-    public Clouds getClouds() {
+    public Integer getClouds() {
         return clouds;
     }
 
@@ -125,115 +196,8 @@ public class List {
      *     The clouds
      */
     @JsonProperty("clouds")
-    public void setClouds(Clouds clouds) {
+    public void setClouds(Integer clouds) {
         this.clouds = clouds;
-    }
-
-    /**
-     * 
-     * @return
-     *     The wind
-     */
-    @JsonProperty("wind")
-    public Wind getWind() {
-        return wind;
-    }
-
-    /**
-     * 
-     * @param wind
-     *     The wind
-     */
-    @JsonProperty("wind")
-    public void setWind(Wind wind) {
-        this.wind = wind;
-    }
-
-    /**
-     * 
-     * @return
-     *     The rain
-     */
-    @JsonProperty("rain")
-    public Rain getRain() {
-        return rain;
-    }
-
-    /**
-     * 
-     * @param rain
-     *     The rain
-     */
-    @JsonProperty("rain")
-    public void setRain(Rain rain) {
-        this.rain = rain;
-    }
-
-    /**
-     * 
-     * @return
-     *     The sys
-     */
-    @JsonProperty("sys")
-    public Sys_ getSys() {
-        return sys;
-    }
-
-    /**
-     * 
-     * @param sys
-     *     The sys
-     */
-    @JsonProperty("sys")
-    public void setSys(Sys_ sys) {
-        this.sys = sys;
-    }
-
-    /**
-     * 
-     * @return
-     *     The dtTxt
-     */
-    @JsonProperty("dt_txt")
-    public String getDtTxt() {
-        return dtTxt;
-    }
-
-    /**
-     * 
-     * @param dtTxt
-     *     The dt_txt
-     */
-    @JsonProperty("dt_txt")
-    public void setDtTxt(String dtTxt) {
-        this.dtTxt = dtTxt;
-    }
-
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
-
-    @Override
-    public int hashCode() {
-        return new HashCodeBuilder().append(dt).append(main).append(weather).append(clouds).append(wind).append(rain).append(sys).append(dtTxt).append(additionalProperties).toHashCode();
-    }
-
-    @Override
-    public boolean equals(Object other) {
-        if (other == this) {
-            return true;
-        }
-        if ((other instanceof List) == false) {
-            return false;
-        }
-        List rhs = ((List) other);
-        return new EqualsBuilder().append(dt, rhs.dt).append(main, rhs.main).append(weather, rhs.weather).append(clouds, rhs.clouds).append(wind, rhs.wind).append(rain, rhs.rain).append(sys, rhs.sys).append(dtTxt, rhs.dtTxt).append(additionalProperties, rhs.additionalProperties).isEquals();
     }
 
 }
