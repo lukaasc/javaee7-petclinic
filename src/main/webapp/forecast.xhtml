@@ -15,53 +15,37 @@
             </h:panelGrid>
         </h:form>
 
-        <h:form>
+        <rich:dataGrid var="item" value="#{forecastController.fl}" columns="7">
+            <rich:panel style="text-align:center">
+                <f:facet name="header">
 
-            <rich:list var="item" value="#{forecastController.fl}" title="Car Store" styleClass="stable">
+                    <h:graphicImage value="http://openweathermap.org/img/w/#{item.icone}.png"/>
+                    <h:outputText value="#{item.city}, #{item.country} " style="text-align:center"/>
+                    <h:outputText value="#{item.date}" style="text-align:center"/>
 
-                <h:graphicImage value="http://openweathermap.org/img/w/#{item.icone}.png"/>
-                
-                <h:outputText value="#{item.city}, #{item.country} - #{item.date}"/><br></br>
+                </f:facet>
+                <h:panelGrid style="text-align:left">
+                    <h:outputText value="#{item.previsao}" style="font-weight:bold; text-transform:capitalize"></h:outputText><br></br>
 
-                <h:outputText value="Previsão: " styleClass="header"></h:outputText>
+                    <h:outputText value="Temperatura: #{item.temp}°C" styleClass="header"></h:outputText>
 
-                <h:outputText value="#{item.previsao} "/><br></br>
-                
-                <h:outputText value="Temperatura: " styleClass="header"></h:outputText>
+                    <h:outputText value="Temperatura Máx: #{item.temp_max}°C" styleClass="header"></h:outputText>
 
-                <h:outputText value="#{item.temp}°C"/><br></br>
-                
-                <h:outputText value="Temperatura Máx: " styleClass="header"></h:outputText>
+                    <h:outputText value="Temperatura Min: #{item.temp_min}°C" styleClass="header"></h:outputText>
 
-                <h:outputText value="#{item.temp_max}°C "/><br></br>            
+                    <h:outputText value="Temperatura Manhã: #{item.temp_manha}°C" styleClass="header"></h:outputText>
 
-                <h:outputText value="Temperatura Min: " styleClass="header"></h:outputText>
+                    <h:outputText value="Temperatura Tarde: #{item.temp_tarde}°C" styleClass="header"></h:outputText>
 
-                <h:outputText value="#{item.temp_min}°C"/><br></br>
+                    <h:outputText value="Temperatura Noite: #{item.temp_noite}°C" styleClass="header"></h:outputText>
 
-                <h:outputText value="Temperatura Manhã: " styleClass="header"></h:outputText>
+                    <h:outputText value="Pressão: #{item.pressao} hPa" styleClass="header"></h:outputText>
 
-                <h:outputText value="#{item.temp_manha}°C"/><br></br>
-
-                <h:outputText value="Temperatura Tarde: " styleClass="header"></h:outputText>
-
-                <h:outputText value="#{item.temp_tarde}°C"/><br></br>
-
-                <h:outputText value="Temperatura Noite: " styleClass="header"></h:outputText>
-
-                <h:outputText value="#{item.temp_noite}°C"/><br></br>
-
-                <h:outputText value="Pressão: " styleClass="header"></h:outputText>
-
-                <h:outputText value="#{item.pressao} "/><br></br>
-                
-                <h:outputText value="Umidade: " styleClass="header"></h:outputText>
-
-                <h:outputText value="#{item.umidade}%"/><br></br>
-          
-            </rich:list>
-
-        </h:form>
+                    <h:outputText value="Umidade: #{item.umidade}%" styleClass="header"></h:outputText>
+                    
+                </h:panelGrid>
+            </rich:panel>
+        </rich:dataGrid>
 
     </ui:define>
 
