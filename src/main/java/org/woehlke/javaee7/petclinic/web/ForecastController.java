@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.woehlke.javaee7.petclinic.model.Forecast;
@@ -19,7 +18,7 @@ import org.woehlke.javaee7.petclinic.model.Weather;
 @SessionScoped
 public class ForecastController implements Serializable {
 
-    private static Logger log = Logger.getLogger(ForecastController.class.getName());
+    private static final Logger log = Logger.getLogger(ForecastController.class.getName());
 
     private String searchterm;
 
@@ -45,7 +44,7 @@ public class ForecastController implements Serializable {
         ForecastList f;
         fl = new ArrayList<>();
         try {
-            fc = mapper.readValue(new URL("http://api.openweathermap.org/data/2.5/forecast/daily?q=" + this.searchterm + "&lang=pt&cnt=3&units=metric&mode=json&APPID=9c6cc69cad227d2f2b7c54783bdb1cc4"), Forecast.class);
+            fc = mapper.readValue(new URL("http://api.openweathermap.org/data/2.5/forecast/daily?q=" + this.searchterm + "&lang=pt&cnt=7&units=metric&mode=json&APPID=9c6cc69cad227d2f2b7c54783bdb1cc4"), Forecast.class);
             log.log(Level.INFO, "{0},{1}",new Object[]{fc.getCity().getName(),fc.getCity().getCountry()});
 
             String date;
