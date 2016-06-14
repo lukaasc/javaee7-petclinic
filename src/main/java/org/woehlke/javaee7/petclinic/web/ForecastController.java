@@ -68,20 +68,20 @@ public class ForecastController implements Serializable {
                 f.setIcone(wt.getIcon());
                 fl.add(f);
                 
-                log.log(Level.WARNING, "Data: {0}", date);
-                log.log(Level.WARNING, "Temperatura do Dia: {0}°C", ls.getTemp().getDay().intValue());
-                log.log(Level.WARNING, "Temperatura Máxima: {0}°C", ls.getTemp().getMax().intValue());
-                log.log(Level.WARNING, "Temperatura Mínima: {0}°C", ls.getTemp().getMin().intValue());
-                log.log(Level.WARNING, "Temperatura Manhã: {0}°C", ls.getTemp().getMorn().intValue());
-                log.log(Level.WARNING, "Temperatura Tarde: {0}°C", ls.getTemp().getEve().intValue());
-                log.log(Level.WARNING, "Temperatura Noite: {0}°C", ls.getTemp().getNight().intValue());
-                log.log(Level.WARNING, "Umidade: {0}%", ls.getHumidity());
-                log.log(Level.WARNING, "Previs\u00e3o: {0}", wt.getDescription());
-                log.log(Level.WARNING, "Press\u00e3o: {0}", ls.getPressure());
-                log.log(Level.WARNING, "Icone: {0}", wt.getIcon());
-
-                log.warning("\n");
-            };
+//                log.log(Level.WARNING, "Data: {0}", date);
+//                log.log(Level.WARNING, "Temperatura do Dia: {0}°C", ls.getTemp().getDay().intValue());
+//                log.log(Level.WARNING, "Temperatura Máxima: {0}°C", ls.getTemp().getMax().intValue());
+//                log.log(Level.WARNING, "Temperatura Mínima: {0}°C", ls.getTemp().getMin().intValue());
+//                log.log(Level.WARNING, "Temperatura Manhã: {0}°C", ls.getTemp().getMorn().intValue());
+//                log.log(Level.WARNING, "Temperatura Tarde: {0}°C", ls.getTemp().getEve().intValue());
+//                log.log(Level.WARNING, "Temperatura Noite: {0}°C", ls.getTemp().getNight().intValue());
+//                log.log(Level.WARNING, "Umidade: {0}%", ls.getHumidity());
+//                log.log(Level.WARNING, "Previs\u00e3o: {0}", wt.getDescription());
+//                log.log(Level.WARNING, "Press\u00e3o: {0}", ls.getPressure());
+//                log.log(Level.WARNING, "Icone: {0}", wt.getIcon());
+//
+//                log.warning("\n");
+            }
 
         } catch (IOException ex) {
             Logger.getLogger(ForecastController.class.getName()).log(Level.SEVERE, null, ex);
